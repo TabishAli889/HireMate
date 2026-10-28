@@ -9,6 +9,9 @@ from fastapi.testclient import TestClient
 from app.services.dashboard_service import score_history, skill_gaps, stats, upcoming_deadlines
 from tests.conftest import use_fake_llm
 
+# The analyze endpoint needs at least 80 characters of posting text.
+POSTING = "Nimbus Analytics is hiring a Backend Intern in Lahore. You will build APIs in Python and ship them with Docker."
+
 
 def card(id: int, status: str, deadline: date | None = None) -> SimpleNamespace:
     return SimpleNamespace(id=id, status=status, deadline=deadline, title=f"Role {id}", company="Acme")
@@ -66,7 +69,7 @@ def test_dashboard_endpoint(client: TestClient) -> None:
 
     client.put("/profile", json={"full_name": "Sara Ahmed", "skills": ["Python"]})
     use_fake_llm(json.dumps({"title": "Backend Intern", "company": "Nimbus", "required_skills": ["Python", "Docker"]}))
-    job_id = client.post("/jobs/analyze", json={"text": "Nimbus is hiring a Backend Intern with Python and Docker."}).json()["id"]
+    job_id = client.post("/jobs/analyze", json={"text": POSTING}).json()["id"]
     card_id = client.post("/applications", json={"job_id": job_id, "deadline": date.today().isoformat()}).json()["id"]
     client.post(f"/applications/{card_id}/move", json={"status": "applied"})
 
