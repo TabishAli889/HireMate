@@ -1,0 +1,116 @@
+/**
+ * HireMate design tokens — the single place to rebrand the app.
+ *
+ * Colors are bare HSL triplets ("H S% L%") so Tailwind can apply opacity
+ * (e.g. `bg-primary/10`). Composite tokens (shadows, glass) are full values.
+ * Every foreground/background pair here meets WCAG AA (≥ 4.5:1) for body text.
+ */
+
+:root {
+  /* Surfaces */
+  --background: 225 33% 98%;
+  --foreground: 226 36% 11%;
+  --card: 0 0% 100%;
+  --card-foreground: 226 36% 11%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 226 36% 11%;
+
+  /* Brand */
+  --primary: 243 75% 55%;
+  --primary-foreground: 0 0% 100%;
+  --gradient-from: 243 75% 55%; /* indigo */
+  --gradient-to: 262 83% 55%; /* violet */
+  --gradient-foreground: 0 0% 100%;
+
+  /* Neutrals */
+  --secondary: 228 32% 94%;
+  --secondary-foreground: 226 36% 16%;
+  --muted: 226 26% 94%;
+  --muted-foreground: 222 13% 36%;
+  --accent: 243 80% 95%;
+  --accent-foreground: 245 58% 34%;
+
+  /* Status */
+  --success: 152 65% 28%;
+  --success-soft: 150 60% 93%;
+  --warning: 30 92% 32%;
+  --warning-soft: 42 95% 91%;
+  --destructive: 0 72% 45%;
+  --destructive-foreground: 0 0% 100%;
+
+  /* Lines & focus */
+  --border: 226 24% 88%;
+  --input: 226 22% 84%;
+  --ring: 243 75% 55%;
+
+  /* Glass & depth */
+  --glass-bg: hsl(0 0% 100% / 0.72);
+  --glass-border: hsl(226 30% 86% / 0.7);
+  --shadow-soft: 0 1px 2px hsl(226 40% 20% / 0.04), 0 10px 30px -14px hsl(226 40% 20% / 0.16);
+  --shadow-glow: 0 10px 28px -10px hsl(var(--gradient-to) / 0.5);
+  --backdrop-glow-1: hsl(243 90% 70% / 0.14);
+  --backdrop-glow-2: hsl(268 90% 70% / 0.12);
+
+  /* Shape */
+  --radius: 1rem; /* rounded-2xl */
+
+  /* Spacing scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+
+  /* Layout */
+  --sidebar-width: 16rem;
+  --sidebar-width-collapsed: 4.75rem;
+  --topbar-height: 4rem;
+  --tabbar-height: 4.25rem;
+  --content-max-width: 72rem;
+
+  /* Typography */
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-heading: "Plus Jakarta Sans Variable", "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+}
+
+.dark {
+  --background: 230 30% 6%;
+  --foreground: 225 40% 96%;
+  --card: 230 26% 10%;
+  --card-foreground: 225 40% 96%;
+  --popover: 230 26% 10%;
+  --popover-foreground: 225 40% 96%;
+
+  --primary: 236 90% 76%;
+  --primary-foreground: 230 30% 8%;
+  --gradient-from: 243 75% 58%;
+  --gradient-to: 262 80% 58%;
+  --gradient-foreground: 0 0% 100%;
+
+  --secondary: 230 22% 16%;
+  --secondary-foreground: 225 40% 94%;
+  --muted: 230 22% 14%;
+  --muted-foreground: 225 16% 70%;
+  --accent: 243 45% 20%;
+  --accent-foreground: 236 100% 88%;
+
+  --success: 150 60% 60%;
+  --success-soft: 152 45% 14%;
+  --warning: 38 95% 62%;
+  --warning-soft: 32 60% 14%;
+  --destructive: 0 80% 64%;
+  --destructive-foreground: 230 30% 8%;
+
+  --border: 230 20% 18%;
+  --input: 230 20% 22%;
+  --ring: 236 90% 76%;
+
+  --glass-bg: hsl(230 26% 11% / 0.66);
+  --glass-border: hsl(230 30% 26% / 0.55);
+  --shadow-soft: 0 1px 2px hsl(0 0% 0% / 0.3), 0 12px 32px -16px hsl(0 0% 0% / 0.6);
+  --shadow-glow: 0 10px 30px -10px hsl(var(--gradient-to) / 0.55);
+  --backdrop-glow-1: hsl(243 90% 60% / 0.16);
+  --backdrop-glow-2: hsl(268 90% 60% / 0.12);
+}

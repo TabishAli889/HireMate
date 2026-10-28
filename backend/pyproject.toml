@@ -1,0 +1,13 @@
+[project]
+name = "hiremate-backend"
+version = "1.0.0"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+# Library deprecation notices (Starlette/FastAPI on Python 3.14) that don't affect HireMate.
+filterwarnings = [
+  "ignore::DeprecationWarning:starlette.*",
+  "ignore::DeprecationWarning:fastapi.*",
+]

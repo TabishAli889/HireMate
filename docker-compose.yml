@@ -1,0 +1,31 @@
+# Run the whole app locally in containers:  docker compose up --build
+# Then open http://localhost:3000  (API docs: http://localhost:8000/docs)
+# Needs backend/.env with GROQ_API_KEY (copy backend/.env.example).
+services:
+  backend:
+    build: ./backend
+    env_file: ./backend/.env
+    environment:
+      ENVIRONMENT: development
+      DATABASE_URL: sqlite:////data/hiremate.db
+    volumes:
+      - hiremate-data:/data
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    environment:
+      BACKEND_URL: http://backend:8000
+      # If you set API_KEY in backend/.env, put the same value here.
+      BACKEND_API_KEY: ""
+    ports:
+      - "3000:3000"
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  hiremate-data:

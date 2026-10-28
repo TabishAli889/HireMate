@@ -1,0 +1,1 @@
+"""HireMate backend package."""
